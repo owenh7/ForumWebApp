@@ -4,12 +4,17 @@ import os
 app = Flask(__name__, template_folder='templates')
 
 
+app.secret_key=os.environ["SECRET_KEY"];
+
+
 @app.route("/")
 def render_main():
     print("RunningMain")
     return render_template('page1.html')
-@app.route("/p1")
+@app.route('/page1',methods=['GET','POST'])
 def render_first():
+    session["firstName"]=request.form['firstName']
+    session["lastName"]=request.form['lastName']
     return render_template('page1.html')
 @app.route("/p2")
 def render_first2():
