@@ -10,7 +10,7 @@ def render_main():
     print("RunningMain")
     return render_template('page1.html')
 @app.route('/page1',methods=['GET','POST'])
-def render_first():
+def renderPage1():
     session["firstName"]=request.form['firstName']
     session["lastName"]=request.form['lastName']
     return render_template('page1.html')
