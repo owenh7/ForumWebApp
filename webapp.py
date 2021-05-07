@@ -15,5 +15,5 @@ def render_first():
 def render_first2():
     return render_template('page2.html')
   
-    if __name__ == "__main__":
+if __name__ == "__main__":
     app.run(debug=True)
