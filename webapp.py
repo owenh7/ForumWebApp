@@ -5,6 +5,9 @@ import os
 app = Flask(__name__, template_folder='templates')
 
 
+app.secret_key=os.environ["SECRET_KEY"];
+
+
 @app.route("/")
 def render_main():
     print("RunningMain")
