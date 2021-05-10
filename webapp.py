@@ -17,7 +17,7 @@ def renderPage1():
     session["firstName"]=request.form['firstName']
     session["lastName"]=request.form['lastName']
     return render_template('page1.html')
-@app.route('/page2',methods=['GET','POST'])
+@app.route('page2',methods=['GET','POST'])
 def renderPage2():
     return render_template('page2.html')
   
