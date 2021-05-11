@@ -12,6 +12,10 @@ app.secret_key=os.environ["SECRET_KEY"];
 def render_main():
     print("RunningMain")
     return render_template('page1.html')
+@app.route('/startOver')
+def startOver():
+    session.clear() #clears variable values and creates a new session
+    return redirect(url_for('renderMain')) # url_for('renderMain') could be replaced with '/'
 @app.route('/page1',methods=['GET','POST'])
 def renderPage1():
     return render_template('page1.html')
