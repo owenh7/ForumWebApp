@@ -14,7 +14,7 @@ def render_main():
     return render_template('page1.html')
 @app.route('/startOver')
 def startOver():
-    session.clear() #clears variable values and creates a new session
+    session.clear() 
     return redirect('/page1')
 @app.route('/page1',methods=['GET','POST'])
 def renderPage1():
