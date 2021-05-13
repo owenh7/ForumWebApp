@@ -12,6 +12,9 @@ app.secret_key=os.environ["SECRET_KEY"];
 def render_main():
     print("RunningMain")
     return render_template('page1.html')
+@app.route('/login')
+   def login():
+      return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
 @app.route('/startOver')
 def startOver():
     session.clear() 
