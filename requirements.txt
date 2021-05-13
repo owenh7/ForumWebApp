@@ -19,3 +19,5 @@ Tempita
 Werkzeug
 wheel
 WTForms
+oauth2
+requests-oauth
