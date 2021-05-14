@@ -14,9 +14,12 @@ oauth.init_app(app)
 def render_main():
     print("RunningMain")
     return render_template('page1.html')
-@app.route('/login/authorized')
+@app.route('/login')
 def login():
     return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
+@app.route('/login/authorized')
+def authorized():
+    return render_template('page2.html') 
 @app.route('/startOver')
 def startOver():
     session.clear() 
