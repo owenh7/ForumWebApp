@@ -28,6 +28,19 @@
            <a class="nav-link" href="/page2">Page 2</a>
          </li>
        </ul>
+      <ul class="nav navbar-nav navbar-right">
+	{% if logged_in %}
+        <li><p class="navbar-text">{{ session['user_data']['name']}}</li>
+        <li><p class="navbar-text">Github userid: {{ session['user_data']['login']}}</li>
+	{% endif %}
+        <li>
+	  {% if logged_in %}
+	  <a href="/logout">Logout</a>
+	  {% else %}
+	  <a href="/login">Login</a>
+	  {% endif %}
+	</li>
+      </ul>
      </div> 
    </nav>
 
