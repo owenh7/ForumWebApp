@@ -2,6 +2,7 @@ decorator
 Flask
 Flask-SQLAlchemy
 Flask-WTF
+Flask-OAuthlib
 gunicorn
 itsdangerous
 Jinja2
@@ -19,6 +20,4 @@ Tempita
 Werkzeug
 wheel
 WTForms
-oauth2
-requests-oauth
-Flask-OAuthlib
+
