@@ -21,3 +21,4 @@ wheel
 WTForms
 oauth2
 requests-oauth
+Flask-OAuthlib
