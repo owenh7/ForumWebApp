@@ -5,6 +5,23 @@
 {% block title %}Page2{% endblock %}
 
 {% block content %}
+<ul class="login-button">
+	{% if logged_in %}
+        <li><p class="text">{{ session['user_data']['name']}}</li>
+        <li><p class="text">Github userid: {{ session['user_data']['login']}}</li>
+	{% endif %}
+        <li>
+	  {% if logged_in %}
+	  <a href="/logout">Logout</a>
+	  {% else %}
+	  <a href="/login">Login</a>
+	  {% endif %}
+	</li>
+      </ul>
+
+<pre>
+{{ dump_user_data }}
+</pre>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
  
