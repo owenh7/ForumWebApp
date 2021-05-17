@@ -53,7 +53,7 @@ def authorized():
             session.clear()
             print(inst)
             message='Unable to login, please try again.  '
-    return render_template('page2.html')
+    return render_template('page1.html')
 @app.route('/startOver')
 def startOver():
     session.clear() 
