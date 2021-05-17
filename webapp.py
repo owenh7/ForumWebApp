@@ -62,7 +62,7 @@ def startOver():
     session.clear() 
     return redirect('/page1')
 @app.route('/page1',methods=['GET','POST'])
-def renderPage2():
+def renderPage1():
     return render_template('page1.html')
 @app.route('/page2',methods=['GET','POST'])
 def renderPage2():
