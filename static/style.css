@@ -1,6 +1,7 @@
 
 ul {
 List-style-type:none;
+  text-align: right;
 }
 pre {
   text-align: right;
