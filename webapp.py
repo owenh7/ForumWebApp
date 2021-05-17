@@ -67,6 +67,11 @@ def renderPage2():
     session["lastName"]=request.form['lastName']
     return render_template('page2.html')
 
+
+@github.tokengetter
+def get_github_oauth_token():
+    return session['github_token']
+
   
 if __name__ == "__main__":
     app.run(debug=True)
