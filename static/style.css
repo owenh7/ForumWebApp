@@ -2,3 +2,6 @@
 ul {
 List-style-type:none;
 }
+pre {
+  text-align: right;
+}
