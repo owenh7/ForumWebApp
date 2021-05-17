@@ -62,15 +62,16 @@ def startOver():
     session.clear() 
     return redirect('/page1')
 @app.route('/page1',methods=['GET','POST'])
-def renderPage1():
+def renderPage2():
+    return render_template('page1.html')
+@app.route('/page2',methods=['GET','POST'])
+def renderPage2():
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         user_data_pprint = '';
-    return render_template('page1.html',dump_user_data=user_data_pprint)
-@app.route('/page2',methods=['GET','POST'])
-def renderPage2():
-    return render_template('page2.html')
+    return render_template('page2.html',dump_user_data=user_data_pprint)
+
 
 
 @github.tokengetter
