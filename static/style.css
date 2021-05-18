@@ -9,11 +9,8 @@ pre {
 .login-button {
   text-align: left;
 }
-a {
-}
-<a href="/logout"> {
-text-align: left;
- 
+p1 {
+  text-align: left;
 }
 a:link, a:visited {
   background-color: #f44336;
