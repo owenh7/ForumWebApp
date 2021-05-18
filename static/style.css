@@ -6,4 +6,6 @@ List-style-type:none;
 pre {
   text-align: right;
 }
-
+.login-button {
+  text-align: left;
+}
