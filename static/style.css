@@ -10,6 +10,8 @@ pre {
   text-align: left;
 }
 a {
-  text-align: left;
+}
+<a href="/logout"> {
+text-align: left;
   border-style: dotted;
 }
