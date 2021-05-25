@@ -2,6 +2,13 @@ from flask import Flask, url_for, request, redirect, session, Markup, render_tem
 from flask_oauthlib.client import OAuth
 import os
 
+def main():
+    connection_string = os.environ["MONGO_CONNECTION_STRING"]
+    db_name = os.environ["MONGO_DBNAME"]
+
+    client = pymongo.MongoClient(connection_string)
+    db = client[db_name]
+    collection = db['Test']
 
 app = Flask(__name__, template_folder='templates')
 
