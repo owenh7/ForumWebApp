@@ -78,10 +78,9 @@ def renderPage1():
     return render_template('page1.html')
 @app.route('/page2',methods=['GET','POST'])
 def renderPage2():
-    if 'user_data' in session:
-        
+    
+    if 'user_data' in session:     
     else:
-   
     return render_template('page2.html',dump_user_data=user_data_pprint)
 
 
