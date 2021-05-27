@@ -80,7 +80,7 @@ def renderPage1():
 def renderPage2():
     if 'user_data' in session:
         
-    else:
+        else:
    
     return render_template('page2.html',dump_user_data=user_data_pprint)
 
