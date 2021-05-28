@@ -79,11 +79,12 @@ def renderPage1():
 @app.route('/page2',methods=['GET','POST'])
 def renderPage2():
     
-    if 'user_data' in session:     
+    if 'user_data' in session:  
+        post=request.form['Submit']
     else:
     return render_template('page2.html',dump_user_data=user_data_pprint)
-
-
+MyDict={"text":post, "author":}
+insert_one(MyDict)
 
 @github.tokengetter
 def get_github_oauth_token():
