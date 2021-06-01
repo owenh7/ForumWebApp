@@ -84,7 +84,7 @@ def renderPage2():
         MyDict={"text":post}
         insert_one(MyDict)
     else:
-        return render_template('page2.html')
+        return render_template('page3.html')
    
 
 @github.tokengetter
