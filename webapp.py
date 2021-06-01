@@ -83,7 +83,7 @@ def renderPage2():
         post=request.form['Submit']
     else:
 return render_template('page2.html',dump_user_data=user_data_pprint)
-MyDict={"text":post, "author":}
+MyDict={"text":post}
 insert_one(MyDict)
 
 @github.tokengetter
