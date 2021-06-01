@@ -84,7 +84,7 @@ def renderPage2():
         MyDict={"text":post}
         insert_one(MyDict)
     else:
-        return render_template('page3.html')
+        return render_template('page2.html')
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
     return render_template('page3.html')
