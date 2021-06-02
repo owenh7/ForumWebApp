@@ -54,9 +54,7 @@ def main():
      resp = github.authorized_response()
      if resp is None:
         session.clear()
-        message = 'Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args)      
-        
-        else:
+        message = 'Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args)     
             
         try:
             session['github_token'] = (resp['access_token'], '') #save the token to prove that the user logged in
