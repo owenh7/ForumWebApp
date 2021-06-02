@@ -58,8 +58,8 @@ def authorized():
                 message='You were successfully logged in as ' + session['user_data']['login'] + '.'
             except Exception as inst:
                 session.clear()
-                    print(inst)
-                        message='Unable to login, please try again.  '
+                print(inst)
+                message='Unable to login, please try again.  '
     return render_template('page2.html')
 @app.route('/logout')
 def logout():
