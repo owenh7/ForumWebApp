@@ -81,12 +81,6 @@ def renderPage2():
         return render_template('page2.html')
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
-    connection_string = os.environ["MONGO_CONNECTION_STRING"]
-    db_name = os.environ["MONGO_DBNAME"]
-
-    client = pymongo.MongoClient(connection_string)
-    db = client[db_name]
-    collection = db['Test']
     for post in collection.find():
         pprint.pprint(post)
     return render_template('page3.html')
