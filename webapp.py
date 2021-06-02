@@ -52,7 +52,7 @@ def main():
     @app.route('/login/authorized')
     def authorized():
      resp = github.authorized_response()
-        if resp is None:
+     if resp is None:
         session.clear()
         message = 'Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args)      
     else:
