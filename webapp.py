@@ -25,18 +25,10 @@ github = oauth.remote_app(
     authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
 )
 
-
-    
-
-
-    
-
-    @app.context_processor("/")
+@app.context_processor("/")
     def inject_logged_in():
         return {"logged_in":('github_token' in session)}
-
-
-    @app.route("/")
+@app.route("/")
     def render_main():
         print("RunningMain")
         
@@ -45,13 +37,13 @@ github = oauth.remote_app(
  
 
         return render_template('page1.html')
-    @app.route('/')
+@app.route('/')
     def home():
         return render_template('home.html')
-    @app.route('/login')
+@app.route('/login')
     def login():
         return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
-    @app.route('/login/authorized')
+@app.route('/login/authorized')
     def authorized():
         resp = github.authorized_response()
     if resp is None:
@@ -69,18 +61,18 @@ github = oauth.remote_app(
             print(inst)
             message='Unable to login, please try again.  '
     return render_template('page2.html')
-    @app.route('/logout')
+@app.route('/logout')
     def logout():
         session.clear()
         return redirect('/page1')
-    @app.route('/startOver')
+@app.route('/startOver')
     def startOver():
         session.clear() 
         return redirect('/page1')
-    @app.route('/page1',methods=['GET','POST'])
+@app.route('/page1',methods=['GET','POST'])
     def renderPage1():
         return render_template('page1.html')
-    @app.route('/page2',methods=['GET','POST'])
+@app.route('/page2',methods=['GET','POST'])
     def renderPage2():
     
         if 'user_data' in session:  
@@ -89,7 +81,7 @@ github = oauth.remote_app(
             insert_one(MyDict)
         else:
             return render_template('page2.html')
-    @app.route('/page3',methods=['GET','POST'])
+@app.route('/page3',methods=['GET','POST'])
     def renderPage3():
         client = pymongo.MongoClient(connection_string)
         db = client[db_name]
@@ -100,7 +92,7 @@ github = oauth.remote_app(
         return render_template('page3.html')
    
 
-    @github.tokengetter
+@github.tokengetter
     def get_github_oauth_token():
         return session['github_token']
 
