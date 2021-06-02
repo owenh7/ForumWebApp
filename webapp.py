@@ -10,13 +10,16 @@ def main():
  client = pymongo.MongoClient(connection_string)
  db = client[db_name]
  collection = db['Test']
- app = Flask(__name__, template_folder='templates')
- app.debug = False
-app.secret_key=os.environ["SECRET_KEY"];
+ app = Flask(__name__)
+
+app.debug = False #Change this to False for production
+#os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' #Remove once done debugging
+
+app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
 oauth = OAuth(app)
-oauth.init_app(app)
+oauth.init_app(app) #initialize the app to be able to make requests for user information
 
-
+#Set up GitHub as OAuth provider
 github = oauth.remote_app(
     'github',
     consumer_key=os.environ['GITHUB_CLIENT_ID'], #your web app's "username" for github's OAuth
@@ -28,7 +31,6 @@ github = oauth.remote_app(
     access_token_url='https://github.com/login/oauth/access_token',  
     authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
 )
-
 
 @app.context_processor
 def inject_logged_in():
