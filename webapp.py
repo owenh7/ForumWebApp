@@ -40,13 +40,9 @@ def main():
     @app.route("/")
     def render_main():
         
+         print("RunningMain")
         connection_string = os.environ["MONGO_CONNECTION_STRING"]
-    db_name = os.environ["MONGO_DBNAME"]
- 
-
-        print("RunningMain")
-        connection_string = os.environ["MONGO_CONNECTION_STRING"]
-    db_name = os.environ["MONGO_DBNAME"]
+        db_name = os.environ["MONGO_DBNAME"]
  
 
         return render_template('page1.html')
