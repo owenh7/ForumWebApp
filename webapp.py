@@ -88,6 +88,7 @@ def renderPage2():
         return render_template('page2.html')
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
+    collection = db['Test']
     for post in collection.find():
         pprint.pprint(post)
 
