@@ -26,10 +26,10 @@ github = oauth.remote_app(
 )
 
 @app.context_processor("/")
-    def inject_logged_in():
+def inject_logged_in():
         return {"logged_in":('github_token' in session)}
 @app.route("/")
-    def render_main():
+def render_main():
         print("RunningMain")
         
         connection_string = os.environ["MONGO_CONNECTION_STRING"]
@@ -38,13 +38,13 @@ github = oauth.remote_app(
 
         return render_template('page1.html')
 @app.route('/')
-    def home():
+def home():
         return render_template('home.html')
 @app.route('/login')
-    def login():
+def login():
         return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
 @app.route('/login/authorized')
-    def authorized():
+def authorized():
         resp = github.authorized_response()
     if resp is None:
         session.clear()
@@ -62,15 +62,15 @@ github = oauth.remote_app(
             message='Unable to login, please try again.  '
     return render_template('page2.html')
 @app.route('/logout')
-    def logout():
+def logout():
         session.clear()
         return redirect('/page1')
 @app.route('/startOver')
-    def startOver():
+def startOver():
         session.clear() 
         return redirect('/page1')
 @app.route('/page1',methods=['GET','POST'])
-    def renderPage1():
+def renderPage1():
         return render_template('page1.html')
 @app.route('/page2',methods=['GET','POST'])
     def renderPage2():
@@ -82,7 +82,7 @@ github = oauth.remote_app(
         else:
             return render_template('page2.html')
 @app.route('/page3',methods=['GET','POST'])
-    def renderPage3():
+def renderPage3():
         client = pymongo.MongoClient(connection_string)
         db = client[db_name]
         collection = db['Test']
@@ -93,7 +93,7 @@ github = oauth.remote_app(
    
 
 @github.tokengetter
-    def get_github_oauth_token():
+def get_github_oauth_token():
         return session['github_token']
 
   
