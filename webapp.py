@@ -13,7 +13,7 @@ def main():
  db = client[db_name]
  collection = db['Test']
 
-app.secret_key=os.environ["SECRET_KEY"];
+
 oauth = OAuth(app)
 oauth.init_app(app)
 
