@@ -31,7 +31,7 @@ github = oauth.remote_app(
 def main():
 
     connection_string = os.environ["MONGO_CONNECTION_STRING"]
-db_name = os.environ["MONGO_DBNAME"]
+    db_name = os.environ["MONGO_DBNAME"]
  
 
     @app.context_processor
