@@ -30,9 +30,7 @@ github = oauth.remote_app(
  
 def main():
 
-    connection_string = os.environ["MONGO_CONNECTION_STRING"]
-    db_name = os.environ["MONGO_DBNAME"]
- 
+    
 
     @app.context_processor
     def inject_logged_in():
@@ -41,7 +39,16 @@ def main():
 
     @app.route("/")
     def render_main():
+        
+        connection_string = os.environ["MONGO_CONNECTION_STRING"]
+    db_name = os.environ["MONGO_DBNAME"]
+ 
+
         print("RunningMain")
+        connection_string = os.environ["MONGO_CONNECTION_STRING"]
+    db_name = os.environ["MONGO_DBNAME"]
+ 
+
         return render_template('page1.html')
     @app.route('/')
     def home():
