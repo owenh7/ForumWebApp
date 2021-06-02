@@ -3,14 +3,7 @@ from flask_oauthlib.client import OAuth
 import os
 import pymongo
 
-def main():
- connection_string = os.environ["MONGO_CONNECTION_STRING"]
- db_name = os.environ["MONGO_DBNAME"]
-
- client = pymongo.MongoClient(connection_string)
- db = client[db_name]
- collection = db['Test']
- app = Flask(__name__)
+app = Flask(__name__)
 
 app.debug = False #Change this to False for production
 #os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' #Remove once done debugging
@@ -31,6 +24,15 @@ github = oauth.remote_app(
     access_token_url='https://github.com/login/oauth/access_token',  
     authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
 )
+
+def main():
+ connection_string = os.environ["MONGO_CONNECTION_STRING"]
+ db_name = os.environ["MONGO_DBNAME"]
+
+ client = pymongo.MongoClient(connection_string)
+ db = client[db_name]
+ collection = db['Test']
+ 
 
 @app.context_processor
 def inject_logged_in():
