@@ -73,7 +73,7 @@ def startOver():
 def renderPage1():
         return render_template('page1.html')
 @app.route('/page2',methods=['GET','POST'])
-    def renderPage2():
+def renderPage2():
     
         if 'user_data' in session:  
             post=request.form['Submit']
