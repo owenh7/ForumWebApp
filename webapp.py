@@ -12,7 +12,7 @@ def main():
  collection = db['Test']
  app = Flask(__name__, template_folder='templates')
  app.debug = False
-app_secret_key=os.environ["SECRET_KEY"];
+app.secret_key=os.environ["SECRET_KEY"];
 oauth = OAuth(app)
 oauth.init_app(app)
 
