@@ -25,13 +25,13 @@ github = oauth.remote_app(
     authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
 )
 
-connection_string = os.environ["MONGO_CONNECTION_STRING"]
-db_name = os.environ["MONGO_DBNAME"]
+
     
  
 def main():
 
-    
+    connection_string = os.environ["MONGO_CONNECTION_STRING"]
+db_name = os.environ["MONGO_DBNAME"]
  
 
     @app.context_processor
