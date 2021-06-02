@@ -36,23 +36,23 @@ def main():
 
     @app.context_processor
     def inject_logged_in():
-    return {"logged_in":('github_token' in session)}
+        return {"logged_in":('github_token' in session)}
 
 
-@app.route("/")
-def render_main():
-    print("RunningMain")
-    return render_template('page1.html')
-@app.route('/')
-def home():
-    return render_template('home.html')
-@app.route('/login')
-def login():
-    return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
-@app.route('/login/authorized')
-def authorized():
-    resp = github.authorized_response()
-    if resp is None:
+    @app.route("/")
+    def render_main():
+        print("RunningMain")
+        return render_template('page1.html')
+    @app.route('/')
+    def home():
+        return render_template('home.html')
+    @app.route('/login')
+    def login():
+        return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
+    @app.route('/login/authorized')
+    def authorized():
+     resp = github.authorized_response()
+        if resp is None:
         session.clear()
         message = 'Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args)      
     else:
@@ -66,41 +66,41 @@ def authorized():
             session.clear()
             print(inst)
             message='Unable to login, please try again.  '
-    return render_template('page2.html')
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect('/page1')
-@app.route('/startOver')
-def startOver():
-    session.clear() 
-    return redirect('/page1')
-@app.route('/page1',methods=['GET','POST'])
-def renderPage1():
-    return render_template('page1.html')
-@app.route('/page2',methods=['GET','POST'])
-def renderPage2():
-    
-    if 'user_data' in session:  
-        post=request.form['Submit']
-        MyDict={"text":post}
-        insert_one(MyDict)
-    else:
         return render_template('page2.html')
-@app.route('/page3',methods=['GET','POST'])
-def renderPage3():
-    client = pymongo.MongoClient(connection_string)
-    db = client[db_name]
-    collection = db['Test']
-    for post in collection.find():
+    @app.route('/logout')
+    def logout():
+        session.clear()
+        return redirect('/page1')
+    @app.route('/startOver')
+    def startOver():
+        session.clear() 
+         return redirect('/page1')
+    @app.route('/page1',methods=['GET','POST'])
+    def renderPage1():
+        return render_template('page1.html')
+    @app.route('/page2',methods=['GET','POST'])
+    def renderPage2():
+    
+        if 'user_data' in session:  
+            post=request.form['Submit']
+            MyDict={"text":post}
+            insert_one(MyDict)
+        else:
+            return render_template('page2.html')
+    @app.route('/page3',methods=['GET','POST'])
+    def renderPage3():
+        client = pymongo.MongoClient(connection_string)
+        db = client[db_name]
+        collection = db['Test']
+        for post in collection.find():
         pprint.pprint(post)
 
-    return render_template('page3.html')
+        return render_template('page3.html')
    
 
-@github.tokengetter
-def get_github_oauth_token():
-    return session['github_token']
+    @github.tokengetter
+    def get_github_oauth_token():
+        return session['github_token']
 
   
 if __name__ == "__main__":
