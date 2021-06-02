@@ -39,8 +39,8 @@ def main():
 
     @app.route("/")
     def render_main():
+        print("RunningMain")
         
-         print("RunningMain")
         connection_string = os.environ["MONGO_CONNECTION_STRING"]
         db_name = os.environ["MONGO_DBNAME"]
  
