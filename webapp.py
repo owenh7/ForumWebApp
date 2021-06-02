@@ -27,8 +27,7 @@ github = oauth.remote_app(
 
 
     
- 
-def main():
+
 
     
 
