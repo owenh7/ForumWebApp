@@ -7,7 +7,7 @@ def main():
 
  app = Flask(__name__, template_folder='templates')
  connection_string = os.environ["MONGO_CONNECTION_STRING"]
-    db_name = os.environ["MONGO_DBNAME"]
+ db_name = os.environ["MONGO_DBNAME"]
 
     client = pymongo.MongoClient(connection_string)
     db = client[db_name]
