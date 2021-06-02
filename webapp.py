@@ -49,7 +49,7 @@ def main():
     @app.route('/login')
     def login():
         return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))
-   @app.route('/login/authorized')
+    @app.route('/login/authorized')
     def authorized():
     resp = github.authorized_response()
     if resp is None:
