@@ -87,6 +87,8 @@ def renderPage2():
         return render_template('page2.html')
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
+    for post in collection.find():
+        pprint.pprint(post)
     return render_template('page3.html')
    
 
