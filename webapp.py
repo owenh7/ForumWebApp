@@ -56,7 +56,7 @@ def authorized():
             #pprint.pprint(vars(github['/email']))
             #pprint.pprint(vars(github['api/2/accounts/profile/']))
                 message='You were successfully logged in as ' + session['user_data']['login'] + '.'
-        except Exception as inst:
+            except Exception as inst:
             session.clear()
             print(inst)
             message='Unable to login, please try again.  '
