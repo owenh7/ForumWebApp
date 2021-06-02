@@ -93,7 +93,7 @@ def main():
         db = client[db_name]
         collection = db['Test']
         for post in collection.find():
-        pprint.pprint(post)
+            pprint.pprint(post)
 
         return render_template('page3.html')
    
