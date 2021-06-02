@@ -35,7 +35,7 @@ def main():
  
 
     @app.context_processor
-def inject_logged_in():
+    def inject_logged_in():
     return {"logged_in":('github_token' in session)}
 
 
