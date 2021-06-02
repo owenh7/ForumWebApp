@@ -87,8 +87,8 @@ def renderPage2():
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
     client = pymongo.MongoClient(connection_string)
- db = client[db_name]
- collection = db['Test']
+    db = client[db_name]
+    collection = db['Test']
     for post in collection.find():
         pprint.pprint(post)
 
